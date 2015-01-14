@@ -77,23 +77,23 @@ function Binary() {
 		}
 		
 		if(index >= 16) {
-			binaryChar = binaryChar.replaceAt(0, "1");
+			binaryChar = stringReplaceAtChar(binaryChar, 0, "1");
 			index -= 16;
 		}
 		if(index >= 8) {
-			binaryChar = binaryChar.replaceAt(1, "1");
+			binaryChar = stringReplaceAtChar(binaryChar, 1, "1");
 			index -= 8;
 		}
 		if(index >= 4) {
-			binaryChar = binaryChar.replaceAt(2, "1");
+			binaryChar = stringReplaceAtChar(binaryChar, 2, "1");
 			index -= 4;
 		}
 		if(index >= 2) {
-			binaryChar = binaryChar.replaceAt(3, "1");
+			binaryChar = stringReplaceAtChar(binaryChar, 3, "1");
 			index -= 2;
 		}
 		if(index == 1) {
-			binaryChar = binaryChar.replaceAt(4, "1");
+			binaryChar = stringReplaceAtChar(binaryChar, 4, "1");
 			index -= 1;
 		}
 		return charType + binaryChar;
@@ -124,7 +124,7 @@ function Binary() {
 		return this.toString();
 	}
 	
-	String.prototype.replaceAt=function(index, character) {
-		return this.substr(0, index) + character + this.substr(index+character.length);
+	stringReplaceAtChar = function(string, index, character) {
+		return string.substr(0, index) + character + string.substr(index+character.length);
 	}
 }
