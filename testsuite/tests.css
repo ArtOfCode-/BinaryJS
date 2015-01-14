@@ -2,7 +2,19 @@ body {
 	font-family: Calibri, sans-serif;
 	font-size: 14px;
 }
-.test-title {
+#tests {
+	width: 50%;
+	float: left;
+}
+#info {
+	width: 30%;
+	float: right;
+}
+.test-title, .mono {
+	font-size: 14px;
+	font-family: 'Courier New', monospace;
+}
+.mono {
 	font-weight: bold;
 	font-size: 14px;
 	font-family: 'Courier New', monospace;

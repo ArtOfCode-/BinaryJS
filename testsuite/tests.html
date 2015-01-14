@@ -10,7 +10,8 @@
 	<title>BinaryJS Test Suite</title>
 </head>
 <body>
-	<h3>Basic Functions</h3>
+<div id="tests">
+	<h3>Basic Functions <span class="mono">(PriorityLevel BuildFailure)</span></h3>
 	<div class="test-title">encodeChar(plainChar)</div>
 	<div id="test:encodeChar" class="test-fail">Test status</div>
 	<div class="test-title">encodeString(plainString)</div>
@@ -22,7 +23,7 @@
 	
 	<hr>
 	
-	<h3>Error Throwing (Validation)</h3>
+	<h3>Error Throwing / Validation <span class="mono">(PriorityLevel Medium)</span></h3>
 	<div class="test-title">encodeChar() throws ArgumentError (CharNonexistent)</div>
 	<div id="test:error:encodeChar:arrayOutOfBounds" class="test-fail">Test status</div>
 	<div class="test-title">encodeChar() throws ArgumentError (plainChar.length > 1)</div>
@@ -36,9 +37,29 @@
 	
 	<hr>
 	
-	<h3>Auxiliary Methods</h3>
+	<h3>Auxiliary Methods <span class="mono">(PriorityLevel MayFailWithout)</span></h3>
 	<div class="test-title">makeArrayFromString(charArray)</div>
 	<div id="test:aux:makeArrayFromString" class="test-fail">Test status</div>
+</div>
+<div id="info">
+	<h3>PriorityLevel</h3>
+	The PriorityLevel is an indicator of how critical a failure in the tests covered by this level is.<br/><br/>
+	<span class="mono">PriorityLevel BuildFailure</span> - the build should not be passed if these tests fail.<br/>
+	<span class="mono">PriorityLevel MayFailWithout</span> - other functions in the source may fail if these methods do not pass.<br/>
+	<span class="mono">PriorityLevel High</span> - not a game-breaker but may seriously affect the library. Do not pass the build if previous builds passed these tests.<br/>
+	<span class="mono">PriorityLevel Medium</span> - not a game-breaker but may affect functionality. Build can still be passed with a cautionary note.<br/>
+	<span class="mono">PriorityLevel Low</span> - there is a possibility that a fail may affect functionality but prioritise others.<br/>
+	
+	<hr>
+	
+	<h3>Build Data</h3>
+	<strong>Build number:</strong> 061<br/>
+	<strong>Library version:</strong> 0.1<br/>
+	<strong>SHA-256:</strong> 217bf82d39abdb23a6dfb75e6f220bb47d934cd4e2e549601ec6c8f00d033b95<br/>
+	
+	<hr>
+	
+</div>
 	
 	<script>
 		runTests();
