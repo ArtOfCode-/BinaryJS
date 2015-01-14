@@ -1,0 +1,23 @@
+body {
+	font-family: Calibri, sans-serif;
+	font-size: 14px;
+}
+.test-title {
+	font-weight: bold;
+	font-size: 14px;
+	font-family: 'Courier New', monospace;
+}
+.test-pass {
+	background: darkgreen;
+	font-weight: bold;
+	color: white;
+	padding: 5px;
+	width: 100px;
+}
+.test-fail {
+	background: darkred;
+	font-weight: bold;
+	color: white;
+	padding: 5px;
+	width: 100px;
+}
