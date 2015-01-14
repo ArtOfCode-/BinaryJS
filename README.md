@@ -57,6 +57,4 @@ There are a few utility methods included in this, which you will see from the so
 to use them for BinaryJS to work, they are public methods and can be used for other purposes if you wish. (I made 
 them public methods so they are testable).
 
-Lastly, there are also some String prototype extensions and some custom errors included. While this shouldn't be a 
-problem, prototype modifications can interfere between libraries, so be aware. I am looking at ways to change this 
-so prototype extensions aren't needed.
+The prototype extensions problem was fixed in 0.1.
