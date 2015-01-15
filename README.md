@@ -3,10 +3,9 @@
 
 BinaryJS is a simple library that provides binary conversion functions for both single characters and strings.
 
-1. **Encoding**  
+#### Encoding  
 You can use either of the two encoding methods. The first, `encodeString`, is meant for longer strings of text,
-but will also accept single characters. **Spaces are not currently supported**, and neither are any other
-characters outside the standard English alphabet (though some support is upcoming). To use:
+but will also accept single characters.  To use:
 
 ```
   // Instantiate a new Binary instance
@@ -16,8 +15,7 @@ characters outside the standard English alphabet (though some support is upcomin
   var translatedText = binary.encodeString("HelloWorld!");
 ```
 
-The other method, `encodeChar` is intended for single characters and **will not work** with anything longer. The 
-same restrictions about unsupported characters apply. This method is internally used for `encodeString`. Use:
+The other method, `encodeChar` is intended for single characters and **will not work** with anything longer. This method is internally used for `encodeString`. Use:
 
 ```
   // Instantiate a new Binary instance
@@ -27,9 +25,9 @@ same restrictions about unsupported characters apply. This method is internally 
   var translatedChar = binary.encodeChar("A");
 ```
 
-2. **Decoding**  
+#### Decoding  
 Again, you can use either decoding function, with similar limitations. The first method, `decodeString`, works as 
-the opposite of `encodeString`. Again, spaces and special characters are unsupported. Here's an example:
+the opposite of `encodeString`. Here's an example:
 
 ```
   // Instantiate a new Binary instance
@@ -40,8 +38,7 @@ the opposite of `encodeString`. Again, spaces and special characters are unsuppo
 ```
 
 And lastly, the `decodeChar` method is the opposite number of the `encodeChar` method. Again, it is internally used
- for `decodeString`, and the character limitations still apply. It will not accept anything longer than one binary 
-character. Its use:
+ for `decodeString`. It will not accept anything longer than one binary character. Its use:
  
 ```
   // Instantiate a new Binary instance
@@ -57,4 +54,16 @@ There are a few utility methods included in this, which you will see from the so
 to use them for BinaryJS to work, they are public methods and can be used for other purposes if you wish. (I made 
 them public methods so they are testable).
 
-The prototype extensions problem was fixed in 0.1.
+There is some character support but not all characters can be encoded yet. The numbers 0-9, spaces, and the symbols 
+`+`, `-`, `.` and `,` are supported, but I am adding more. There is also a method to test if a character is supported
+if you're unsure:
+
+```
+  binary.isSupported("@");
+  
+  >>> false
+  
+  binary.isSupported(" ");    // Space, not an empty string
+  
+  >>> true
+```
