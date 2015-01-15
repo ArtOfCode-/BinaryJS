@@ -1,6 +1,9 @@
 function Binary() {
 	var self = this;
 	
+	var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+	var specialChars = {" ": "00100000", ".": "00101110", ",": "00101100", "-": "00101101", "0": "00110000", "1": "00110001", "2": "00110010", "3": "00110011", "4": "00110100", "5": "00110101", "6": "00110110", "7": "00110111", "8": "00111000", "9": "00111001"}
+	
 	this.decodeString = function(binaryString) {
 		if(binaryString.length % 8 != 0) {
 			console.warn("Binary characters should be 8 bits long each.");
@@ -23,8 +26,6 @@ function Binary() {
 		return self.makeStringFromArray(chars);
 	}
 	this.decodeChar = function(binaryChar) {
-		var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-		
 		if(binaryChar.length != 8) {
 			console.warn("Binary characters should be 8 bits long.");
 			throw new BinaryError("Binary character length invalid.");
@@ -32,7 +33,11 @@ function Binary() {
 		
 		var charType = binaryChar.substr(0, 3);
 		binaryChar = binaryChar.substr(3);
-
+		
+		var invertedChars = invert(specialChars);
+		if(invertedChars.hasOwnProperty(binaryChar)) {
+			return invertedChars[binaryChar];
+		}
 		
 		var alphaIndex = 0;
 		for(var i = 0; i < binaryChar.length; i++) {
@@ -46,9 +51,9 @@ function Binary() {
 			throw new ArgumentError("Binary number resolves to a letter not in the alphabet.");
 		}
 		
-		if(charType == "011")
+		if(charType == "010")
 			return alphabet[alphaIndex - 1].toUpperCase();
-		else if(charType == "010")
+		else if(charType == "011")
 			return alphabet[alphaIndex - 1];
 		else {
 			console.warn("Binary characters should start with 011 for capital or 010 for lowercase.");
@@ -64,8 +69,11 @@ function Binary() {
 		return self.makeStringFromArray(chars);
 	}
 	this.encodeChar = function(plainChar) {
-		var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-		var charType = (plainChar == plainChar.toUpperCase()) ? "011" : "010";
+		if(specialChars.hasOwnProperty(plainChar)) {
+			return specialChars[plainChar];
+		}
+		
+		var charType = (plainChar == plainChar.toUpperCase()) ? "010" : "011";
 		var binaryChar = "00000";
 		var index = alphabet.indexOf(plainChar.toLowerCase()) + 1;
 		
@@ -107,6 +115,12 @@ function Binary() {
 		return string;
 	}
 	
+	this.isSupported = function(queryChar) {
+		var inAlphabet = (alphabet.indexOf(queryChar.toLowerCase()) != -1) ? true : false;
+		if(specialChars[queryChar] || inAlphabet) return true;
+		else return false;
+	}
+	
 	BinaryError.prototype.toString = function() {
 		return this.name + ": " + this.message;
 	}
@@ -124,7 +138,17 @@ function Binary() {
 		return this.toString();
 	}
 	
-	stringReplaceAtChar = function(string, index, character) {
+	var stringReplaceAtChar = function(string, index, character) {
 		return string.substr(0, index) + character + string.substr(index+character.length);
+	}
+	
+	var invert = function(obj) {
+		var new_obj = {};
+		for (var prop in obj) {
+			if(obj.hasOwnProperty(prop)) {
+				new_obj[obj[prop]] = prop;
+			}
+		}
+		return new_obj;
 	}
 }

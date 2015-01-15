@@ -12,34 +12,36 @@
 <body>
 <div id="tests">
 	<h3>Basic Functions <span class="mono">(PriorityLevel BuildFailure)</span></h3>
-	<div class="test-title">encodeChar(plainChar)</div>
+	<div class="test-title">1: encodeChar(plainChar)</div>
 	<div id="test:encodeChar" class="test-fail">Test status</div>
-	<div class="test-title">encodeString(plainString)</div>
+	<div class="test-title">2: encodeString(plainString)</div>
 	<div id="test:encodeString" class="test-fail">Test status</div>
-	<div class="test-title">decodeChar(binaryChar)</div>
+	<div class="test-title">3: decodeChar(binaryChar)</div>
 	<div id="test:decodeChar" class="test-fail">Test status</div>
-	<div class="test-title">decodeString(binaryString)</div>
+	<div class="test-title">4: decodeString(binaryString)</div>
 	<div id="test:decodeString" class="test-fail">Test status</div>
 	
 	<hr>
 	
 	<h3>Error Throwing / Validation <span class="mono">(PriorityLevel Medium)</span></h3>
-	<div class="test-title">encodeChar() throws ArgumentError (CharNonexistent)</div>
+	<div class="test-title">5: encodeChar() throws ArgumentError (CharNonexistent)</div>
 	<div id="test:error:encodeChar:arrayOutOfBounds" class="test-fail">Test status</div>
-	<div class="test-title">encodeChar() throws ArgumentError (plainChar.length > 1)</div>
+	<div class="test-title">6: encodeChar() throws ArgumentError (plainChar.length > 1)</div>
 	<div id="test:error:encodeChar:argLength" class="test-fail">Test status</div>
-	<div class="test-title">decodeChar() throws BinaryError (binaryChar.length != 8)</div>
+	<div class="test-title">7: decodeChar() throws BinaryError (binaryChar.length != 8)</div>
 	<div id="test:error:decodeChar:charLengthInvalid" class="test-fail">Test status</div>
-	<div class="test-title">decodeChar() throws ArgumentError (BinaryEval > 26 (out of alphabet))</div>
+	<div class="test-title">8: decodeChar() throws ArgumentError (BinaryEval > 26 (out of alphabet))</div>
 	<div id="test:error:decodeChar:binaryOver26" class="test-fail">Test status</div>
-	<div class="test-title">decodeChar() throws BinaryError (InvalidCharType)</div>
+	<div class="test-title">9: decodeChar() throws BinaryError (InvalidCharType)</div>
 	<div id="test:error:decodeChar:invalidCharType" class="test-fail">Test status</div>
 	
 	<hr>
 	
 	<h3>Auxiliary Methods <span class="mono">(PriorityLevel MayFailWithout)</span></h3>
-	<div class="test-title">makeArrayFromString(charArray)</div>
+	<div class="test-title">10: makeArrayFromString(charArray)</div>
 	<div id="test:aux:makeArrayFromString" class="test-fail">Test status</div>
+	<div class="test-title">11: isSupported(queryChar)</div>
+	<div id="test:aux:isSupported" class="test-fail">Test status</div>
 </div>
 <div id="info">
 	<h3>PriorityLevel</h3>
@@ -53,9 +55,8 @@
 	<hr>
 	
 	<h3>Build Data</h3>
-	<strong>Build number:</strong> 061<br/>
+	<strong>Build number:</strong> 064<br/>
 	<strong>Library version:</strong> 0.1<br/>
-	<strong>SHA-256:</strong> 217bf82d39abdb23a6dfb75e6f220bb47d934cd4e2e549601ec6c8f00d033b95<br/>
 	
 	<hr>
 	

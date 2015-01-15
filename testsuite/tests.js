@@ -1,21 +1,21 @@
 function runTests() {
 	// Test 1
-	if(binary.encodeChar("A") == "01100001") {
+	if(binary.encodeChar("A") == "01000001") {
 		document.getElementById("test:encodeChar").className = "test-pass";
 	}
 	
 	// Test 2
-	if(binary.encodeString("Ab") == "0110000101000010") {
+	if(binary.encodeString("Ab") == "0100000101100010") {
 		document.getElementById("test:encodeString").className = "test-pass";
 	}
 	
 	// Test 3
-	if(binary.decodeChar("01100001") == "A") {
+	if(binary.decodeChar("01000001") == "A") {
 		document.getElementById("test:decodeChar").className = "test-pass";
 	}
 	
 	// Test 4
-	if(binary.decodeString("0110000101000010") == "Ab") {
+	if(binary.decodeString("0100000101100010") == "Ab") {
 		document.getElementById("test:decodeString").className = "test-pass";
 	}
 	
@@ -62,5 +62,10 @@ function runTests() {
 	// Test 10
 	if(binary.makeStringFromArray(["A", "b"]) == "Ab") {
 		document.getElementById("test:aux:makeArrayFromString").className = "test-pass";
+	}
+	
+	// Test 11
+	if(binary.isSupported("A") && binary.isSupported("0") && !binary.isSupported("@")) {
+		document.getElementById("test:aux:isSupported").className = "test-pass";
 	}
 }
