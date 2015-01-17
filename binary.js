@@ -107,6 +107,36 @@ function Binary() {
 		return charType + binaryChar;
 	}
 	
+	this.binaryAdd = function(numberArray) {
+		var total = 0;
+		for(var i = 0; i < numberArray.length; i++) {
+			if(isNaN(numberArray[i])) {
+				throw new ArgumentError("Argument at index " + i + " is not a binary number");
+			}
+			else {
+				total += parseInt(numberArray[i], 2);
+			}
+		}
+		return (total + 0).toString(2);
+	}
+	this.binarySubtract = function(numberArray) {
+		var total = 0;
+		for(var i = 0; i < numberArray.length; i++) {
+			if(isNaN(numberArray[i])) {
+				throw new ArgumentError("Argument at index " + i + " is not a binary number");
+			}
+			else {
+				if(i == 0) {
+					total += parseInt(numberArray[i], 2);
+				}
+				else {
+					total -= parseInt(numberArray[i], 2);
+				}
+			}
+		}
+		return (total + 0).toString(2);
+	}
+	
 	this.makeStringFromArray = function(charArray) {
 		var string = "";
 		for(var i = 0; i < charArray.length; i++) {
